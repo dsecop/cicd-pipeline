@@ -26,12 +26,12 @@ pipeline {
     stage('Image build') {
       steps {
         script {
-          def customImage = docker.build("${image_name}")
+          def customImage = docker.build("${registry}:${env.BUILD_ID}")
         }
       }
     }
   }
   environment {
-    image_name = 'myimage'
+    registry = 'secop/my-app'
   }
 }
