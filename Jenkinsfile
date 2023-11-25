@@ -13,7 +13,7 @@ pipeline {
     stage('Application Build') {
       steps {
         script {
-          sh 'apt-get install node' sh 'npm install' sh './scripts/build.sh'
+          sh 'npm install' sh './scripts/build.sh'
         }
 
       }
