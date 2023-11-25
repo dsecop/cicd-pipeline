@@ -12,7 +12,9 @@ pipeline {
 
     stage('Application Build') {
       steps {
-        sh 'sh \'./scripts/build.sh\''
+        sh '''
+
+'''
       }
     }
 
