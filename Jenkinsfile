@@ -28,14 +28,13 @@ pipeline {
     stage('Docker image build') {
       steps {
         script {
-          def customImage = docker.build("${REGISTRY}:${env.BUILD_ID}")
+          def app = docker.build("${REGISTRY}:${env.BUILD_ID}")
         }
       }
     }
     stage('Docker image push') {
       steps {
         script {
-          def app
           docker.withRegistry('', 'dockerhub_id') {
             app.push("${env.BUILD_ID}")
             app.push('latest1')
