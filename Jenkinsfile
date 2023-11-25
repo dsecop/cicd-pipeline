@@ -33,7 +33,7 @@ pipeline {
     stage('Docker image push') {
       steps {
         sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-        sh 'docker push $REGISTRY:$env.BUILD_ID'
+        sh "docker push $REGISTRY:${env.BUILD_ID}"
       }
     }
   }
