@@ -28,7 +28,7 @@ pipeline {
     stage('Docker image build') {
       steps {
         script {
-          def app = docker.build("${REGISTRY}:${env.BUILD_ID}")
+          def appImage = docker.build("${REGISTRY}:${env.BUILD_ID}")
         }
       }
     }
@@ -36,9 +36,8 @@ pipeline {
       steps {
         script {
           docker.withRegistry('', 'dockerhub_id') {
-            app.push("${env.BUILD_ID}")
-            app.push('latest1')
-            // docker.image("${REGISTRY}:${env.BUILD_ID}").push('latest')
+            docker.image("${REGISTRY}:${env.BUILD_ID}").push('latest1')
+            docker.image("${REGISTRY}:${env.BUILD_ID}").push("${env.BUILD_ID}")
           }
         }
       }
