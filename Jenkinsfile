@@ -23,7 +23,7 @@ pipeline {
         }
       }
     }
-    stage('Image build') {
+    stage('Docker image build') {
       steps {
         script {
           def customImage = docker.build("${REGISTRY}:${env.BUILD_ID}")
