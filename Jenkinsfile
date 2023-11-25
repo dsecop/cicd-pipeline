@@ -16,10 +16,17 @@ pipeline {
         }
       }
     }
-    stage('test') {
+    stage('Test') {
       steps {
         script {
           sh './scripts/test.sh'
+        }
+      }
+    }
+    stage('Build') {
+      steps {
+        script {
+          def customImage = docker.build("${registry}:${env.BUILD_ID}")
         }
       }
     }
