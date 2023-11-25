@@ -16,6 +16,13 @@ pipeline {
         }
       }
     }
+    stage('test') {
+      steps {
+        script {
+          sh './scripts/test.sh'
+        }
+      }
+    }
   }
   environment {
     registry = 'secop/my-app'
