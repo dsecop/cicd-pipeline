@@ -10,6 +10,12 @@ pipeline {
       }
     }
 
+    stage('Application Build') {
+      steps {
+        sh './scripts/build.sh'
+      }
+    }
+
   }
   environment {
     registry = 'secop/my-app'
