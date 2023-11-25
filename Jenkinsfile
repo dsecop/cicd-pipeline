@@ -6,7 +6,6 @@ pipeline {
         script {
           checkout scm
         }
-
       }
     }
 
@@ -16,7 +15,6 @@ pipeline {
           sh 'chmod u+x scripts/build.sh'
           sh './scripts/build.sh'
         }
-
       }
     }
 
@@ -25,7 +23,6 @@ pipeline {
         script {
           sh './scripts/test.sh'
         }
-
       }
     }
 
@@ -34,10 +31,8 @@ pipeline {
         script {
           def customImage = docker.build("${image_name}")
         }
-
       }
     }
-
   }
   environment {
     image_name = 'myimage'
