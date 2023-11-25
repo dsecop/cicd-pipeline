@@ -36,7 +36,7 @@ pipeline {
       steps {
         script {
           docker.withRegistry('', "${DOCKERHUB_CREDENTIALS}") {
-            docker.image("${REGISTRY}:${env.BUILD_ID:}").push('latest')
+            docker.image("${REGISTRY}:${env.BUILD_ID}").push('latest')
           }
         }
       }
