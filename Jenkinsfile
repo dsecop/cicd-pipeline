@@ -8,7 +8,6 @@ pipeline {
         }
       }
     }
-
     stage('Application build') {
       steps {
         script {
@@ -17,7 +16,6 @@ pipeline {
         }
       }
     }
-
     stage('Test') {
       steps {
         script {
@@ -25,7 +23,6 @@ pipeline {
         }
       }
     }
-
     stage('Image build') {
       steps {
         script {
