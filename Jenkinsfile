@@ -40,6 +40,6 @@ pipeline {
 
   }
   environment {
-    image_name = 'mybuildimage  '
+    image_name = 'mybuildimage'
   }
 }
