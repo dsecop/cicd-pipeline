@@ -12,9 +12,10 @@ pipeline {
 
     stage('Application Build') {
       steps {
-        sh '''
+        script {
+          sh 'nmp install' sh './scripts/build.sh'
+        }
 
-'''
       }
     }
 
