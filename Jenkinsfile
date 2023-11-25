@@ -36,10 +36,10 @@ pipeline {
         sh 'docker push $REGISTRY:$env.BUILD_ID'
       }
     }
-    post {
-      always {
-        sh 'docker logout'
-      }
+  }
+  post {
+    always {
+      sh 'docker logout'
     }
   }
   environment {
