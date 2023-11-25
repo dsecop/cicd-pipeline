@@ -36,7 +36,9 @@ pipeline {
       steps {
         script {
           docker.withRegistry('', 'dockerhub_id') {
-            docker.image("${REGISTRY}:${env.BUILD_ID}").push('latest')
+            app.push("${env.BUILD_ID}")
+            app.push('latest1')
+            // docker.image("${REGISTRY}:${env.BUILD_ID}").push('latest')
           }
         }
       }
@@ -55,6 +57,6 @@ pipeline {
   }
   environment {
     REGISTRY = 'secop/my-app'
-    DOCKERHUB_CREDENTIALS = credentials('dockerhub_id')
+    // DOCKERHUB_CREDENTIALS = credentials('dockerhub_id')
   }
 }
