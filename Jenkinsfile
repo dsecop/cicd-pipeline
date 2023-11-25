@@ -13,7 +13,7 @@ pipeline {
     stage('Application Build') {
       steps {
         script {
-          sh 'nmp install' sh './scripts/build.sh'
+          sh 'npm install' sh './scripts/build.sh'
         }
 
       }
