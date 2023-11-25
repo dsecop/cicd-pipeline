@@ -33,6 +33,12 @@ pipeline {
     stage('Docker login') {
       steps {
         sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+        sh 'docker push $REGISTRY:$env.BUILD_ID'
+      }
+    }
+    post {
+      always {
+        sh 'docker logout'
       }
     }
   }
