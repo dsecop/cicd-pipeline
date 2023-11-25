@@ -10,7 +10,7 @@ pipeline {
       }
     }
 
-    stage('Application Build') {
+    stage('Application build') {
       steps {
         script {
           sh 'chmod u+x scripts/build.sh'
@@ -29,7 +29,7 @@ pipeline {
       }
     }
 
-    stage('Build') {
+    stage('Image build') {
       steps {
         script {
           def customImage = docker.build("${image_name}")
@@ -40,6 +40,6 @@ pipeline {
 
   }
   environment {
-    image_name = 'mybuildimage'
+    image_name = 'myimage'
   }
 }
