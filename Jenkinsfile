@@ -28,6 +28,15 @@ pipeline {
       }
     }
 
+    stage('Docker image build') {
+      steps {
+        script {
+          def appImage = docker.build("${REGISTRY}:${env.BUILD_ID}")
+        }
+
+      }
+    }
+
   }
   environment {
     REGISTRY = 'secop/my-app'
