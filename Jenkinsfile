@@ -42,12 +42,13 @@ pipeline {
         }
       }
     }
-    post {
-      always {
-        sh 'docker logout'
-      }
-    }
-    environment {
-      REGISTRY = 'secop/my-app'
+  }
+  post {
+    always {
+      sh 'docker logout'
     }
   }
+  environment {
+    REGISTRY = 'secop/my-app'
+  }
+}
