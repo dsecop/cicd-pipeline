@@ -37,8 +37,19 @@ pipeline {
       }
     }
 
+    stage('Docker image push') {
+      steps {
+        script {
+          '''docker.withRegistry('', 'dockerhub_id') {
+docker.image("${REGISTRY}:${env.BUILD_ID}").push('latest')
+docker.image("${REGISTRY}:${env.BUILD_ID}").push("${env.BUILD_ID}")'''
+          }
+
+        }
+      }
+
+    }
+    environment {
+      REGISTRY = 'secop/my-app'
+    }
   }
-  environment {
-    REGISTRY = 'secop/my-app'
-  }
-}
